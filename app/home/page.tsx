@@ -4,9 +4,13 @@ import { getServerSession } from "next-auth";
 import { authConfig } from "@/lib/auth/config";
 import { redirect } from "next/navigation";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page() {
   const session = await getServerSession(authConfig);
-  if (!session?.user) redirect("/login");
+  if (!session?.user) {
+    redirect("/login");
+  }
   return (
     <>
       {/* HS-ADD: main authenticated home layout */}

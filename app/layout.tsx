@@ -15,13 +15,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main className="container">
-          <SessionProvider>
+        <SessionProvider>
+          <Header />
+          <main className="container">
             {children}
-          </SessionProvider>
-        </main>
-        <Footer />
+          </main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );

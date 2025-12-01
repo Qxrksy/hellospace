@@ -5,8 +5,8 @@ import { useSession } from 'next-auth/react';
 import { clientSignOut } from '@/lib/auth/client';
 
 export default function HeaderLinks() {
-  const { data } = useSession();
-  const authed = !!data?.user;
+  const session = useSession();
+  const authed = !!session?.data?.user;
 
   return (
     <div style={{ display: "flex", alignItems: "start", gap: 8 }}>
