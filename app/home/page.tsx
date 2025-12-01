@@ -1,10 +1,11 @@
 // HS-ADD: app/home/page.tsx
 import Link from "next/link";
-import { auth } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { authConfig } from "@/lib/auth/config";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const session = await auth();
+  const session = await getServerSession(authConfig);
   if (!session?.user) redirect("/login");
   return (
     <>
