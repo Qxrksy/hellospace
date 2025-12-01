@@ -21,7 +21,7 @@ export default function Page() {
         <button type="submit">Search</button>
       </form>
       <br />
-      <p>or try the <Link href="/advancedsearch">>> Advanced Search</Link></p>
+      <p>or try the <Link href="/advancedsearch">&gt;&gt; Advanced Search</Link></p>
     </div>
   );
 }
