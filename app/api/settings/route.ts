@@ -4,6 +4,9 @@ import { getServerSession } from "next-auth";
 import { authConfig } from "@/lib/auth/config";
 import { db } from "@/lib/db";
 
+// Mark this route as dynamic
+export const dynamic = 'force-dynamic';
+
 // GET current user settings
 export async function GET() {
   try {
