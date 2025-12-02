@@ -5,7 +5,7 @@ export default function Page({ params }: { params: { username: string } }) {
   return (
     <>
       <div className="welcome standalone">
-        <img src="https://static.spacehey.net/img/logo_small.png" alt="HelloSpace" />
+        <img src="/logo-hellospace.svg" alt="HelloSpace" style={{ height: 24 }} />
       </div>
 
       <div className="row profile">

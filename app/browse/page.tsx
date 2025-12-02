@@ -168,7 +168,7 @@ export default function Page({
                 {(results as User[]).map((u) => (
                   <div key={u.id} style={{ textAlign: "center" }}>
                     <a href={`/${encodeURIComponent(u.name)}`} style={{ display: "block", textDecoration: "none" }}>
-                      <img src="/img/default/profilepic.png" alt="profile" style={{ width: 64, height: 64, objectFit: "cover", border: "1px solid #ddd", background: "#eee" }} />
+                      <img src="/img/default/profilepic.svg" alt="profile" style={{ width: 64, height: 64, objectFit: "cover", border: "1px solid #ddd", background: "#eee" }} />
                       <div style={{ marginTop: 6, fontSize: 12, color: "#0a4b78" }}>{u.name}</div>
                     </a>
                   </div>

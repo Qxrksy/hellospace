@@ -1,19 +1,14 @@
 // HS-ADD: app/home/page.tsx
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import { authConfig } from "@/lib/auth/config";
-import { redirect } from "next/navigation";
-
-export const dynamic = 'force-dynamic';
+import { authOptions } from "@/lib/auth/config";
 
 export default async function Page() {
-  const session = await getServerSession(authConfig);
-  if (!session?.user) {
-    redirect("/login");
-  }
+  const session = await getServerSession(authOptions);
+
   return (
     <>
-      {/* HS-ADD: main authenticated home layout */}
+      {/* HS-ADD: main home layout */}
       <div className="row home">
         {/* LEFT COLUMN */}
         <div className="col w-60 left">
@@ -24,19 +19,19 @@ export default async function Page() {
             </div>
             <div className="inner cool">
               <div className="person">
-                <img src="https://placekitten.com/80/80" alt="Ana" />
+                <img src="/img/placeholder.svg" alt="Ana" />
                 <p>Ana ★</p>
               </div>
               <div className="person">
-                <img src="https://placekitten.com/81/80" alt="carr" />
+                <img src="/img/placeholder.svg" alt="carr" />
                 <p>carrrrrrrrrrr</p>
               </div>
               <div className="person">
-                <img src="https://placekitten.com/82/80" alt="TheSunAlex" />
+                <img src="/img/placeholder.svg" alt="TheSunAlex" />
                 <p>TheSunAlex</p>
               </div>
               <div className="person">
-                <img src="https://placekitten.com/83/80" alt="M1L4NQ" />
+                <img src="/img/placeholder.svg" alt="M1L4NQ" />
                 <p>M1L4NQ</p>
               </div>
               <div className="view-more">
@@ -106,37 +101,75 @@ export default async function Page() {
 
         {/* RIGHT COLUMN */}
         <div className="col w-40 right">
-          {/* HS-ADD: Login/Signup box */}
-          <div className="box standalone" style={{ width: 300 }}>
-            <h4>Member Login/Signup</h4>
-            <form>
-              <table>
-                <tbody>
-                  <tr className="email">
-                    <td className="label"><label htmlFor="email">E‑Mail:</label></td>
-                    <td><input id="email" name="email" type="email" placeholder="you@example.com" /></td>
-                  </tr>
-                  <tr className="password">
-                    <td className="label"><label htmlFor="password">Password:</label></td>
-                    <td><input id="password" name="password" type="password" /></td>
-                  </tr>
-                  <tr className="remember">
-                    <td></td>
-                    <td><label><input type="checkbox" /> Remember my E‑mail</label></td>
-                  </tr>
-                  <tr className="buttons">
-                    <td></td>
-                    <td>
-                      <button className="login_btn" type="button">LOGIN</button>
-                      <span style={{ display: 'inline-block', width: 6 }} />
-                      <button className="signup_btn" type="button">SIGN UP!</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </form>
-            <p className="forgot"><Link href="#">Forgot your password?</Link></p>
-          </div>
+          {session ? (
+            <>
+              {/* HS-ADD: User updates/bulletins (authenticated) */}
+              <div className="spa orange">
+                <div className="heading">
+                  <h4>Latest Updates</h4>
+                </div>
+                <div className="inner">
+                  <p>Welcome back, {session.user?.name || "Friend"}!</p>
+                  <p>Check out the latest bulletins and updates from your friends.</p>
+                  <p><Link href="/bulletins">» View Bulletins</Link></p>
+                </div>
+              </div>
+
+              {/* HS-ADD: Friend Activity */}
+              <div className="spa">
+                <div className="heading">
+                  <h4>Friend Activity</h4>
+                </div>
+                <div className="inner">
+                  <p>Your friends have been busy!</p>
+                  <ul className="updates">
+                    <li>New blog posts and photos uploaded</li>
+                    <li>Profile updates and comments</li>
+                    <li>Forum discussions</li>
+                  </ul>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* HS-ADD: Login/Signup box (unauthenticated) */}
+              <div className="box standalone" style={{ width: 300 }}>
+                <h4>Member Login</h4>
+                <form action="/api/auth/signin" method="POST">
+                  <input type="hidden" name="callbackUrl" value="/home" />
+                  <table>
+                    <tbody>
+                      <tr className="email">
+                        <td className="label"><label htmlFor="email">E‑Mail:</label></td>
+                        <td><input id="email" name="email" type="email" placeholder="you@example.com" required /></td>
+                      </tr>
+                      <tr className="password">
+                        <td className="label"><label htmlFor="password">Password:</label></td>
+                        <td><input id="password" name="password" type="password" required /></td>
+                      </tr>
+                      <tr className="remember">
+                        <td></td>
+                        <td><label><input type="checkbox" name="remember" /> Remember my E‑mail</label></td>
+                      </tr>
+                      <tr className="buttons">
+                        <td></td>
+                        <td>
+                          <Link href="/login">
+                            <button className="login_btn" type="button">LOGIN</button>
+                          </Link>
+                          <span style={{ display: 'inline-block', width: 6 }} />
+                          <Link href="/signup">
+                            <button className="signup_btn" type="button">SIGN UP!</button>
+                          </Link>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+                <p className="forgot"><Link href="/forgot-password">Forgot your password?</Link></p>
+              </div>
+            </>
+          )}
 
           {/* HS-ADD: Donation / info card */}
           <div className="indie-box">

@@ -6,7 +6,7 @@ import HeaderLinks from "@/components/header-links";
 export default function Header() {
   return (
     <nav>
-      <div className="top">
+      <div className="top" style={{ width: 810, maxWidth: "100%", margin: "0 auto" }}>
         {/* Make the container a flex row and give it HelloSpace measurements */}
         <div
           className="container"
@@ -15,9 +15,7 @@ export default function Header() {
             display: "flex",
             alignItems: "center",
             height: 46,
-            maxWidth: 980,
             padding: "0 6px",
-            margin: "0 auto",
           }}
         >
           {/* LEFT: fixed width like HelloSpace (keeps the center perfectly centered) */}
@@ -72,8 +70,8 @@ export default function Header() {
       </div>
 
       {/* SUBNAV — fix invalid markup: UL must contain only LI's */}
-      <div className="links">
-        <div className="container" style={{ maxWidth: 980, padding: "0 6px", margin: "0 auto" }}>
+      <div className="links" style={{ width: 810, maxWidth: "100%", margin: "0 auto" }}>
+        <div className="container" style={{ padding: "0 6px" }}>
           <ul>
             <li><Link href="/home">Home</Link></li>
             <li><Link href="/browse">Browse</Link></li>

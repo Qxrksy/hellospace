@@ -1,0 +1,303 @@
+/* Mobile-first responsive styles for HelloSpace */
+
+/* Tablet and below (768px) */
+@media (max-width: 768px) {
+  /* Container adjustments */
+  .container {
+    max-width: 100%;
+    padding: 0 8px !important;
+  }
+
+  /* Header adjustments */
+  nav .top .container {
+    flex-direction: column;
+    height: auto !important;
+    padding: 8px !important;
+  }
+
+  nav .top .left {
+    width: 100% !important;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  nav .top .center {
+    position: static !important;
+    transform: none !important;
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  nav .top .center .search-wrapper {
+    width: 100% !important;
+    flex-direction: column;
+  }
+
+  nav .top .center input {
+    width: 100% !important;
+    margin: 4px 0;
+  }
+
+  nav .top .right {
+    margin-left: 0 !important;
+    transform: none !important;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Sub-navigation */
+  nav .links ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px !important;
+  }
+
+  nav .links li {
+    font-size: 11px;
+  }
+
+  /* Home page columns */
+  .row.home {
+    flex-direction: column !important;
+  }
+
+  .row.home .col {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Profile columns */
+  .row.profile {
+    flex-direction: column !important;
+  }
+
+  .row.profile .col {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Cool new people grid */
+  .new-people .inner.cool {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
+  }
+
+  .new-people .person {
+    font-size: 11px;
+  }
+
+  .new-people .person img {
+    width: 100%;
+    max-width: 70px;
+  }
+
+  /* Info boxes */
+  .row.info-area {
+    flex-direction: column !important;
+  }
+
+  .row.info-area .col {
+    width: 100% !important;
+    margin-bottom: 12px;
+  }
+
+  /* Forms - make them full width */
+  .box.standalone {
+    width: 100% !important;
+    max-width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .box.standalone table {
+    width: 100%;
+  }
+
+  .box.standalone input[type="email"],
+  .box.standalone input[type="password"],
+  .box.standalone input[type="text"] {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .box.standalone table td {
+    display: block;
+    width: 100%;
+  }
+
+  .box.standalone table tr.email td,
+  .box.standalone table tr.password td,
+  .box.standalone table tr.name td {
+    padding: 4px 0;
+  }
+
+  .box.standalone table td.label {
+    margin-bottom: 4px;
+  }
+
+  .box.standalone table tr.buttons td {
+    padding-top: 12px;
+  }
+
+  /* Buttons */
+  .box.standalone button {
+    width: 100%;
+    margin: 4px 0;
+  }
+
+  /* Messages page */
+  .messages-container {
+    flex-direction: column !important;
+  }
+
+  .chat-list,
+  .chat-box {
+    width: 100% !important;
+  }
+
+  /* Browse page */
+  .simple-container {
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Forum */
+  .forum-section {
+    padding: 8px !important;
+  }
+
+  /* Groups grid */
+  .groups-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile phones (480px and below) */
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  /* Header logo */
+  nav .top .left img.logo {
+    max-width: 120px;
+  }
+
+  /* Search form */
+  nav .top .center label {
+    display: none;
+  }
+
+  nav .top .center input {
+    font-size: 14px;
+  }
+
+  /* Navigation items */
+  nav .links li {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
+  /* Cool people grid - 4 columns on small phones */
+  .new-people .inner.cool {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Profile images */
+  .general-about .profile-pic img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  /* Login/signup forms */
+  .box.standalone {
+    padding: 8px;
+  }
+
+  .box.standalone h4 {
+    font-size: 16px;
+  }
+
+  /* Buttons */
+  button,
+  .login_btn,
+  .signup_btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Hide less important UI elements on very small screens */
+  .indie-box {
+    display: none;
+  }
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make tables responsive */
+table {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  a,
+  button,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Keyboard focus states for accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #1D4ED8;
+  outline-offset: 2px;
+}
+
+/* Remove default outline for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+}

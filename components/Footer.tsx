@@ -19,12 +19,12 @@ export default function Footer() {
         <li><a href="#">Credits</a></li>
         <li><a href="#">RSS</a></li>
         <li><a href="#">Terms</a></li>
-        <li><a href="#">Privacy</a></li>
+        <li><a href="https://www.privacyguides.org/" target="_blank" rel="noopener noreferrer">Privacy Resources</a></li>
         <li><a href="#">Imprint</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Report Abuse</a></li>
-        <li><a href="#">Status</a></li>
-        <li><a href="#">HelloSpace Shop</a></li>
+        <li><a href="https://www.w3.org/WAI/fundamentals/accessibility-intro/" target="_blank" rel="noopener noreferrer">Accessibility</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
 
       {/* HS-ADD: copyright */}
